@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=31zUBsqcOZY
 - As a user I want to be able to view details of the film
 - As a user I want to be able to rent a film out to a customer
 
-##Customer Page (1):
+## Customer Page (1):
 - As a user I want to view a list of all customers (Pref. using pagination)
 
 
@@ -36,7 +36,7 @@ https://www.youtube.com/watch?v=31zUBsqcOZY
 
 ## Technologies Used
 
+- HTML / CSS / JavaScript
 - PHP
 - MySQL (Sakila Database)
 - RESTful APIs
-- HTML / CSS / JavaScript
