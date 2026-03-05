@@ -1,9 +1,39 @@
 <?php
 require __DIR__ . '/../config/database.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+$method = $_SERVER['REQUEST_METHOD'];
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$parts = explode('/', trim($uri, '/'));
+$rentalId = isset($parts[2]) && is_numeric($parts[2]) ? (int)$parts[2] : null;
+$action = $parts[3] ?? null;
+
+if ($method === 'PUT' && $rentalId && $action === 'return') {
+    $stmt = $pdo->prepare("SELECT rental_id, return_date FROM rental WHERE rental_id = ?");
+    $stmt->execute([$rentalId]);
+    $rental = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$rental) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Rental not found']);
+        exit;
+    }
+    
+    if ($rental['return_date'] !== null) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Rental already returned']);
+        exit;
+    }
+    
+    $stmt = $pdo->prepare("UPDATE rental SET return_date = NOW() WHERE rental_id = ?");
+    $stmt->execute([$rentalId]);
+    
+    echo json_encode(['ok' => true]);
+    exit;
+}
+
+if ($method !== 'POST') {
     http_response_code(405);
-    echo json_encode(['error' => 'post only']);
+    echo json_encode(['error' => 'Method not allowed']);
     exit;
 }
 
