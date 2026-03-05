@@ -8,9 +8,12 @@ https://github.com/ShereenMohamed1/sakila-frontend
 Back End Repo URL:  
 https://github.com/ShereenMohamed1/sakila-backend  
 
-## Video Demo
+## Video 
 
-Video Demo URL:  
+Video Demo Milestone3 URL:  
+https://www.youtube.com/watch?v=C_Iwrmbpcfg  
+
+Video Demo Milestone2 URL:  
 https://www.youtube.com/watch?v=31zUBsqcOZY  
 
 ---
@@ -28,8 +31,14 @@ https://www.youtube.com/watch?v=31zUBsqcOZY
 - As a user I want to be able to view details of the film
 - As a user I want to be able to rent a film out to a customer
 
-## Customer Page (1):
+## Customer Page (7):
 - As a user I want to view a list of all customers (Pref. using pagination)
+- As a user I want the ability to filter/search customers by their customer id, first name or last name.
+- As a user I want to be able to add a new customer
+- As a user I want to be able to edit a customer’s details
+- As a user I want to be able to delete a customer if they no longer wish to patron at store
+- As a user I want to be able to view customer details and see their past and present rental history
+- As a user I want to be able to indicate that a customer has returned a rented movie
 
 
 ---
